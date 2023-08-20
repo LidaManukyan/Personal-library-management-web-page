@@ -1,0 +1,57 @@
+*{
+  font-size: 20px;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper{
+  top:50%;
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  border: 10px solid;
+  margin: 0 auto;
+  width: 25%;
+  border-radius: 10px;
+  background-color: black;
+
+}
+
+.bord{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(50px,auto);
+  border-radius: 10px;
+  border: none;
+}
+
+.in{
+height:75px;
+width: 270px;
+color: black;
+text-align: right;
+font-size: larger;
+
+}
+
+.operation{
+  color: chocolate;
+  background-color: black;
+  
+}
+
+.operation:hover{
+  color:aliceblue
+}
+
+ .zero{
+  grid-column: 1/ span 2;
+  grid-row: 5;
+} 
+
+button{
+  margin: 5px;
+}
