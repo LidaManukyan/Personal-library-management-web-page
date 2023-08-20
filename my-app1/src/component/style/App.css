@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.App{
+    width: 880px;
+    margin: 50px;
+}
+
+
+#root{
+    display: flex;
+    justify-content: center;
+  
+  }
+
+  .prop{
+    display: flex;
+    border: 2px solid;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px;
+   
+  }
+
+  
+  
+  .item-enter {
+    transform:translateX(350px);
+  }
+  .item-enter-active {
+    transform:translateX(0px);
+    transition: all 500ms ease-in;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    transform:translateX(-350px);
+    transition: all 500ms ease-in;
+  }
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
