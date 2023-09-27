@@ -40,4 +40,9 @@ addFigures(){
     new King(Colors.WHITE, this.getCell(7,0))
     this.addPawns()
 }
+getCopyBoard():Board{
+    const newBoard=new Board()
+    newBoard.cells=this.cells
+    return newBoard
+}
 }

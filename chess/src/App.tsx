@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="app">
      <BoardComponent
+     setBoard={setBoard}
      board={board}
      />
 

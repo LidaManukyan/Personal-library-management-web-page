@@ -20,4 +20,14 @@ export class Cell{
         this.id=Math.random();
 
     }
+    moveFigure(target:Cell){
+        if(this.figure && this.figure.canMove(target)){//թարգեթը մեր ընտրած վանդակն է, եթե վրան կա ֆիգուր և anMoveը true է
+            this.figure.moveFigure(target)// ֆիգուռը կարող ենք տեղաշարժել,թարգեթը վանդակն է որտեղուզում ենք տեղաշարժել
+            target.figure=this.figure;//  տանել նշված դաշտ
+             this.figure= null; //հեռացնել ֆիգուրը ընթացիկ դաշտից
+
+        }
+    
+    }
 }
+
