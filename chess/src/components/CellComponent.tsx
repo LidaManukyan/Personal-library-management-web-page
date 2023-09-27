@@ -12,7 +12,7 @@ const CellComponent:React.FC<CellProps>=({cell,selected,click})=>{
         <div className={["cell",cell.color, selected? "selected": ""].join(" ")}
         onClick={()=>click(cell)}
         >
-            {!cell.figure && <div className={"awailable"}/>}
+            {!cell.avalable && <div className={"awailable"}/>}
            
            {cell.figure ?.logo && <img src ={cell.figure.logo}/>}
 

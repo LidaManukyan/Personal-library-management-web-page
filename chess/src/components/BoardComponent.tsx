@@ -10,17 +10,27 @@ interface BoardProps{
 }
 
 const BoardComponent:React.FC<BoardProps>=({board,setBoard})=>{
-    const [selectedCell, setSelectedCell]=useState<Cell | null>(null)
+    const [selectedCell, setSelectedCell] = useState<Cell | null>(null)
 
-    function click(cell:Cell){
-      if(selectedCell && selectedCell !== cell){ 
-            selectedCell.moveFigure(cell)
-            setSelectedCell(null)// ընտրված դաշտը զրոյացնում ենք
-            // updateBoard()
+    function click(cell:Cell){    
+        let c = cell.getMove();    
 
-      } if (cell.figure) { 
-            setSelectedCell(cell)
-      } 
+        for (let i = 0; i < c.length; i++) {
+                board.cells[c[i][0]][c[i][1]].avalable=true;
+                     
+        }
+
+        debugger;
+        setBoard(board);
+
+    //   if(selectedCell && selectedCell !== cell){ 
+    //         selectedCell.moveFigure(cell)
+    //         setSelectedCell(null)// ընտրված դաշտը զրոյացնում ենք
+    //         // updateBoard()
+
+    //   } if (cell.figure) { 
+    //         setSelectedCell(cell)
+    //   } 
          //փոխում ենք state-ը՝ տալով ընտրված դաշտը
     }
 
