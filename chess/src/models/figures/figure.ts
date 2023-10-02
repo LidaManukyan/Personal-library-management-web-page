@@ -1,7 +1,8 @@
-import { log } from "console";
 import { Cell } from "../cell";
 import { Colors } from "../color";
 import  logo from "./images/black-bishop.png"
+
+
 
 
 
@@ -10,6 +11,7 @@ export class Figure{
     cell:Cell;
     logo:typeof logo | null   
     id:number;
+   
 
     constructor(color:Colors,cell:Cell){
         this.color=color;
@@ -17,12 +19,14 @@ export class Figure{
         this.cell.figure=this; //վանդակի մեջ ավելացնում ենք ֆիգուռը,որպեսընթացիկ օբյեկտ
         this.id=Math.random()
         this.logo=null
+       
              
     }
 
     canMove(target:Cell): boolean{
-        return true
-    }
+     if(target.figure?.color===this.color){return false}
+     return true
+         }
 
     moveFigure(target:Cell){
         

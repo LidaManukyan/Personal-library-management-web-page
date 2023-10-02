@@ -12,22 +12,30 @@ interface BoardProps{
 const BoardComponent:React.FC<BoardProps>=({board,setBoard})=>{
     const [selectedCell, setSelectedCell]=useState<Cell | null>(null)
 
+  
     function click(cell:Cell){
-      if(selectedCell && selectedCell !== cell){ 
+      if(selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)){ 
             selectedCell.moveFigure(cell)
             setSelectedCell(null)// ընտրված դաշտը զրոյացնում ենք
             // updateBoard()
 
-      } if (cell.figure) { 
+      } else { 
             setSelectedCell(cell)
       } 
          //փոխում ենք state-ը՝ տալով ընտրված դաշտը
     }
 
 
-    // useEffect(()=>{
-    //     updateBoard()
-    // },[])
+    useEffect(()=>{ 
+        highlightCells();
+    },[selectedCell])
+
+    function highlightCells() {
+        board.highlightCells(selectedCell);
+    
+        updateBoard();
+    }
+
 
     
     function updateBoard(){

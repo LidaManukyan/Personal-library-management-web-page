@@ -17,6 +17,7 @@ function App() {
   useEffect(()=>{
     restart()
   },[])
+  
   return (
     <div className="app">
      <BoardComponent
