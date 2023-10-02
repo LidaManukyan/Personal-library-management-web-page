@@ -32,10 +32,4 @@ export class Figure{
         
     }
 
-    
-
-    
-
-
-
 }

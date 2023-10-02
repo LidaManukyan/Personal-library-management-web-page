@@ -21,16 +21,7 @@ export class Cell {
         this.available=false
     }
 
-    getMove():any[][] {
-        let moves:any[][] = [];
-
-        if (this.figure) {
-            alert("not empty");
-            moves.push([this.x+1,this.y+1]);
-        }
-
-        return moves;
-    }
+  
 
     setFigur(figure:Figure){
         this.figure=figure;
