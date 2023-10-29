@@ -35,14 +35,14 @@ export class Bishop extends Figure {
     const endRow = Math.max(this.cell.y, target.y);
 
     
-    for (let col = startCol + 1, row = startRow + 1; col < endCol; col++, row++) {
-        const cell = this.cell.board.getCell(col, row);
-
-        if (!cell.isEmpty()) {
+    for (let col = startCol + 1, row = startRow + 1; col > endCol; col++, row++) {
+        
+        if (this.cell.board.getCell(col, row).figure !==null) {
            
-            if (cell.figure && cell.figure.color === this.color) {
-                return false; 
-            }
+            
+                return false;
+                
+            
         }
     }
 

@@ -20,8 +20,9 @@ import whiteLogo from "./images/white-king.png"
           
           const dx = Math.abs(target.x - this.cell.x);
           const dy = Math.abs(target.y - this.cell.y);
+          console.log(dx)
       
-          if (dx <= 1 && dy <= 1) {
+          if ((dx <= 1 && dy <= 1)&& target.isEmpty()){
             return true; 
           }
       

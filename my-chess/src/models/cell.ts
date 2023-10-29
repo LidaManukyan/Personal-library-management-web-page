@@ -38,7 +38,8 @@ export class Cell {
       }
 
     isEmpty(): boolean {
-        return this.figure === null;
+        return this.figure === null
+               
     }
 
     isEnemy(target: Cell): boolean {
@@ -55,8 +56,10 @@ export class Cell {
           return false;
         }
     
-        const min = Math.min(this.y, target.y);
+        const min = Math.max(this.y, target.y);
         const max = Math.max(this.y, target.y);
+        console.log(min)
+        
         for (let y = min + 1; y < max; y++) {
           if(!this.board.getCell(this.x, y).isEmpty()) {
             return false
@@ -94,8 +97,8 @@ export class Cell {
         
         for (let col = startCol + 1, row = startRow + 1; col < endCol; col++, row++) {
             
-            if (this.board.getCell(col, row).isEmpty()) {
-                return false; 
+            if (this.board.getCell(col, row).figure?.color ===this.figure?.color ) {
+                return false
             }
         }
 

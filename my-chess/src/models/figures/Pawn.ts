@@ -12,7 +12,21 @@ export class Pawn extends Figure {
     this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
   }
 
-   
+//   canMove(target: Cell): boolean {
+//       if(!super.canMove(target)){
+//         return false
+//       }
+//       let startY = Math.min(this.cell.y,target.y)
+//       const firstStepDirection = this.color === Colors.BLACK ? 2 : -2;
+//       const direction = this.color === Colors.BLACK ? 1 : -1;
+//       if(this.isFirstStep){
+//       for(let y= startY+1;;y+1)
+//       }
+    
+
+
+
+
 //1111111111111111
     // canMove(target: Cell): boolean {
     //     if (!super.canMove(target)) {
@@ -20,26 +34,17 @@ export class Pawn extends Figure {
     //     }
 
     //     const direction = this.color === Colors.BLACK ? 1 : -1;
-    //     const firstStepDirection = this.color === Colors.BLACK ? 2 : -2;
+    //     const firstStep = this.color === Colors.BLACK ? 2 : -2;
 
     //     if (
-    //         (target.y === this.cell.y + direction || (this.isFirstStep && target.y === this.cell.y + firstStepDirection)) &&
+    //         (target.y === this.cell.y + direction || (this.isFirstStep && target.y === this.cell.y + firstStep)) &&
     //         target.x === this.cell.x &&
     //         target.isEmpty()
     //     ) {
     //         return true;
     //     }
 
-    //     if (
-    //         target.y === this.cell.y + direction &&
-    //         (target.x === this.cell.x + 1 || target.x === this.cell.x - 1) &&
-    //         !target.isEmpty() &&
-    //         target.isEnemy(target)
-    //     ) {
-    //         return true;
-    //     }
-
-    //     return false;
+     //     return false;
     // }
 
     // moveFigure(target: Cell) {
@@ -48,30 +53,5 @@ export class Pawn extends Figure {
     // }
 
 
-    //22222222222
-
-    // canMove(target: Cell): boolean {
-    //     if (!super.canMove(target)) {
-    //         return false;
-    //     }
-
-    //     const direction = this.color === Colors.BLACK ? 1 : -1;
-    //     const firstStepDirection = this.color === Colors.BLACK ? 2 : -2;
-
-    //     // Check if the target cell is either one step or two steps away in the y-direction
-    //     if ((target.y === this.cell.y + direction || (this.isFirstStep && target.y === this.cell.y + firstStepDirection)) &&
-    //         target.x === this.cell.x &&
-    //         target.isEmpty()) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    // moveFigure(target: Cell) {
-    //     if (this.canMove(target)) {
-    //         super.moveFigure(target);
-    //         this.isFirstStep = false;
-    //     }
-    // }
+  
 }
