@@ -53,20 +53,27 @@ export class Cell {
 
       isEmptyVertical(target: Cell): boolean {
         if (this.x !== target.x) {
-          return false;
+          return false; 
         }
-    
-        const min = Math.max(this.y, target.y);
-        const max = Math.max(this.y, target.y);
-        console.log(min)
-        
-        for (let y = min + 1; y < max; y++) {
-          if(!this.board.getCell(this.x, y).isEmpty()) {
-            return false
+      
+        const minY = Math.min(this.y, target.y);
+        const maxY = Math.max(this.y, target.y);
+      
+        for (let y = minY + 1; y < maxY; y++) {
+          if (this.board.cells[this.x][y].isEmpty()) {
+            this.board.cells[this.x][y].available = true;
+          } else {
+            if (this.board.cells[this.x][y].figure?.color === this.color) {
+              return false;
+            } else {
+              this.board.cells[this.x][y].available = true;
+            }
           }
         }
-        return true;
+      
+        return true; 
       }
+      
     
       isEmptyHorizontal(target: Cell): boolean {
         if (this.y !== target.y) {
@@ -76,7 +83,7 @@ export class Cell {
         const min = Math.min(this.x, target.x);
         const max = Math.max(this.x, target.x);
         for (let x = min + 1; x < max; x++) {
-          if(!this.board.getCell(x, this.y).isEmpty()) {
+          if(!this.board.cells[x][this.y].isEmpty()) {
             return false
           }
         }
@@ -97,7 +104,7 @@ export class Cell {
         
         for (let col = startCol + 1, row = startRow + 1; col < endCol; col++, row++) {
             
-            if (this.board.getCell(col, row).figure?.color ===this.figure?.color ) {
+            if (!this.board.cells[col][row].isEmpty() ) {
                 return false
             }
         }

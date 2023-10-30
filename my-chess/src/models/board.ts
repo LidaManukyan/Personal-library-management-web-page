@@ -55,15 +55,15 @@ export class Board {
     }
     private addRooks() {
         new Rook(Colors.BLACK, this.getCell(0, 0));
-        new Rook(Colors.BLACK, this.getCell(7, 0));
+        new Rook(Colors.BLACK, this.getCell(5, 1));
         new Rook(Colors.WHITE, this.getCell(0, 7));
-        new Rook(Colors.WHITE, this.getCell(7, 7));
+        new Rook(Colors.WHITE, this.getCell(6, 5));
     }
     addFigures() {
         this.addPawns();
         this.addBishops();
-        this.addKings();
-        this.addKnights();
+        //this.addKings();
+        //this.addKnights();
         this.addQueens();
         this.addRooks();
     }

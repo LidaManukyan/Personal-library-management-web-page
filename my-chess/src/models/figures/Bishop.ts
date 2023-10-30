@@ -17,36 +17,33 @@ export class Bishop extends Figure {
 
     
     if (Math.abs(this.cell.x - target.x) !== Math.abs(this.cell.y - target.y)) {
-      return false; 
+      return false;
     }
 
     
-    if (!this.isEmptyDiagonal(target)) {
-      return false; 
-    }
-
-    return true; 
+    return this.cell.isEmptyDiagonal(target);
   }
 
-  isEmptyDiagonal(target: Cell): boolean {
-    const startCol = Math.min(this.cell.x, target.x);
-    const startRow = Math.min(this.cell.y, target.y);
-    const endCol = Math.max(this.cell.x, target.x);
-    const endRow = Math.max(this.cell.y, target.y);
-
-    
-    for (let col = startCol + 1, row = startRow + 1; col > endCol; col++, row++) {
-        
-        if (this.cell.board.getCell(col, row).figure !==null) {
-           
-            
-                return false;
-                
-            
-        }
-    }
-
-    return true; 
+  // isEmptyDiagonal(target: Cell): boolean {
+  //   const startCol = Math.min(this.cell.x, target.x);
+  //   const startRow = Math.min(this.cell.y, target.y);
+  //   const endCol = Math.max(this.cell.x, target.x);
+  //   const endRow = Math.max(this.cell.y, target.y);
+  
+  //   for (let col = startCol + 1, row = startRow + 1; col < endCol; col++, row++) {
+  //     if (this.cell.board.cells[col][row].isEmpty()) {
+  //       this.cell.board.cells[col][row].available = true;
+  //     } else {
+  //       if (this.cell.board.cells[col][row].figure?.color == this.color) {
+  //         return false;
+  //       } else {
+  //         this.cell.board.cells[col][row].available = true;
+  //        return false;
+  //       }
+  //     }
+      
+  //   }
+  //   return true
+  // }
 }
-
-}
+  
