@@ -17,11 +17,22 @@ export class Figure {
   }
 
   canMove(target: Cell): boolean {
+    console.log('Checking if the figure can move to the target cell:', target);
     if (target.figure?.color === this.color) {
-      return false;
+      return false
     }
     return true;
   }
 
-  moveFigure(target: Cell) {}
+  moveFigure(target: Cell):void {
+    console.log('Moving figure to the target cell:');
+  }
+
+  posiblMove(target: Cell): { x: number; y: number }[] {
+    const availableMoves: { x: number; y: number }[] = [];
+    
+    return availableMoves;
+  }
+  
+
 }

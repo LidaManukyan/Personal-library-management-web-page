@@ -14,36 +14,73 @@ export class Bishop extends Figure {
     if (!super.canMove(target)) {
       return false;
     }
-
-    
-    if (Math.abs(this.cell.x - target.x) !== Math.abs(this.cell.y - target.y)) {
-      return false;
-    }
-
-    
-    return this.cell.isEmptyDiagonal(target);
-  }
-
-  // isEmptyDiagonal(target: Cell): boolean {
-  //   const startCol = Math.min(this.cell.x, target.x);
-  //   const startRow = Math.min(this.cell.y, target.y);
-  //   const endCol = Math.max(this.cell.x, target.x);
-  //   const endRow = Math.max(this.cell.y, target.y);
   
-  //   for (let col = startCol + 1, row = startRow + 1; col < endCol; col++, row++) {
-  //     if (this.cell.board.cells[col][row].isEmpty()) {
-  //       this.cell.board.cells[col][row].available = true;
-  //     } else {
-  //       if (this.cell.board.cells[col][row].figure?.color == this.color) {
-  //         return false;
-  //       } else {
-  //         this.cell.board.cells[col][row].available = true;
-  //        return false;
-  //       }
-  //     }
-      
-  //   }
-  //   return true
-  // }
-}
+    const possibleMoves = this.posiblMove(target);
+    console.log(possibleMoves)
+    return possibleMoves.some(move => {
+      return move.x === target.x && move.y === target.y && (move.isEmpty() || move.figure?.color !== this.color);
+    });
+  }
+  
+  posiblMove(target: Cell): Cell[] {
+    const startCol = this.cell.x;
+    const startRow = this.cell.y;
+    const endCol = target.x;
+    const endRow = target.y;
+    let available: Cell[] = [];
+  
+    const coldirection = endCol > startCol ? 1 : -1;
+    const rowdirection = endRow > startRow ? 1 : -1;
+  
+    let col = startCol + coldirection;
+    let row = startRow + rowdirection;
+  
+    while (col !== endCol || row !== endRow) {
+      if (this.cell.board.cells[col] && this.cell.board.cells[col][row]) {
+        const currentCell = this.cell.board.cells[col][row];
+  
+        if (currentCell.isEmpty()) {
+          currentCell.available = true;
+          available.push(currentCell);
+        } else if (currentCell.figure ?.color !== this.color) {
+          currentCell.available = true;
+          available.push(currentCell);
+          break;
+        } else {
+          break;
+        }
+  
+        col += coldirection;
+        row += rowdirection;
+      } else {
+        break;  
+      }
+    }
+  
+    return available;
+  }
+  
+  moveFigure(target: Cell): void {
+    if (target.available) {
+     
+      this.cell.figure = null;
+  
+      target.figure = this;
+      this.cell = target;
+  
+      this.cell.setFigure(null);
+  
+      target.available = false;
+    }
+  }
+  
+  
+  
+    }
+    
+  
+  
+
+  
+
   

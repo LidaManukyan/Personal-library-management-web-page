@@ -12,21 +12,21 @@ import whiteLogo from "./images/white-king.png"
           this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
         }
       
-        canMove(target: Cell): boolean {
-          if (!super.canMove(target)) {
-            return false; 
-          }
+        // canMove(target: Cell): boolean {
+        //   if (!super.canMove(target)) {
+        //     return false; 
+        //   }
       
           
-          const dx = Math.abs(target.x - this.cell.x);
-          const dy = Math.abs(target.y - this.cell.y);
-          console.log(dx)
+        //   const dx = Math.abs(target.x - this.cell.x);
+        //   const dy = Math.abs(target.y - this.cell.y);
+        //   console.log(dx)
       
-          if ((dx <= 1 && dy <= 1)&& target.isEmpty()){
-            return true; 
-          }
+        //   if ((dx <= 1 && dy <= 1)&& target.isEmpty()){
+        //     return true; 
+        //   }
       
-          return false; 
-        }
+        //   return false; 
+        // }
       }
   

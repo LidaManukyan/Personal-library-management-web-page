@@ -8,7 +8,7 @@ export class Cell {
     color: Colors;
     figure: Figure | null;
     board: Board;
-    available: boolean;
+    available: boolean=false;
     id: number
 
     constructor(board: Board, x: number, y: number, color: Colors, figure: Figure | null) {
@@ -23,14 +23,20 @@ export class Cell {
 
   
 
-    setFigure(figure:Figure){
-        this.figure=figure;
-        this.figure.cell=this;
-
+    setFigure(figure: Figure | null): void {
+      if (this.figure) {
+        this.figure.cell = null!; 
+      }
+  
+      this.figure = figure;
+  
+      if (figure) {
+        figure.cell = this;
+      }
     }
 
     moveFigure(target: Cell) {
-        if(this.figure && this.figure?.canMove(target)) {
+        if(this.figure && this.figure?.canMove(target) ) { /*&& this.figure?.canMove(target)*/
           this.figure.moveFigure(target)
           target.setFigure(this.figure);
           this.figure = null;
@@ -99,7 +105,7 @@ export class Cell {
         const startCol = Math.min(this.x, target.x);
         const startRow = Math.min(this.y, target.y);
         const endCol = Math.max(this.x, target.x);
-        const endRow = Math.max(this.y, target.y);
+       
 
         
         for (let col = startCol + 1, row = startRow + 1; col < endCol; col++, row++) {
@@ -107,11 +113,15 @@ export class Cell {
             if (!this.board.cells[col][row].isEmpty() ) {
                 return false
             }
+            if (this.board.cells[col][row].figure?.color === this.color ) {
+              break
+          }
+          
+            
         }
 
         return true; 
     }
 
-
-    
+       
 }

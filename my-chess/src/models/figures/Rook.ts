@@ -10,78 +10,78 @@ export class Rook extends Figure{
         this.logo =color=== Colors.BLACK ? blackLogo :whiteLogo
       
     }
-    canMove(target: Cell): boolean {
-      if(!super.canMove(target))
-        return false;
+//     canMove(target: Cell): boolean {
+//       if(!super.canMove(target))
+//         return false;
 
 
-          let currentX  = this.cell.x;
-        let currentY = this.cell.y;
+//           let currentX  = this.cell.x;
+//         let currentY = this.cell.y;
        
 
-        // vervev
+//         // vervev
        
-for (let index = currentX - 1; index >= 0; index--) {
-  if (this.cell.board.cells[index][currentY].isEmpty()) {
-    this.cell.board.cells[index][currentY].available = true;
-  } else {
-    if (this.cell.board.cells[index][currentY].figure?.color == this.color) {
-      break;
-    } else {
-      this.cell.board.cells[index][currentY].available = true;
-      break;
-    }
-  }
+// for (let index = currentX - 1; index >= 0; index--) {
+//   if (this.cell.board.cells[index][currentY].isEmpty()) {
+//     this.cell.board.cells[index][currentY].available = true;
+//   } else {
+//     if (this.cell.board.cells[index][currentY].figure?.color == this.color) {
+//       break;
+//     } else {
+//       this.cell.board.cells[index][currentY].available = true;
+//       break;
+//     }
+//   }
  
-}
+// }
 
-// ներքև
-for (let index = currentX + 1; index < this.cell.board.cells.length; index++) {
-  if (this.cell.board.cells[index][currentY].isEmpty()) {
-    this.cell.board.cells[index][currentY].available = true;
-  } else {
-    if (this.cell.board.cells[index][currentY].figure?.color == this.color) {
-      break;
-    } else {
-      this.cell.board.cells[index][currentY].available = true;
-      break;
-    }
-  }
-}
+// // ներքև
+// for (let index = currentX + 1; index < this.cell.board.cells.length; index++) {
+//   if (this.cell.board.cells[index][currentY].isEmpty()) {
+//     this.cell.board.cells[index][currentY].available = true;
+//   } else {
+//     if (this.cell.board.cells[index][currentY].figure?.color == this.color) {
+//       break;
+//     } else {
+//       this.cell.board.cells[index][currentY].available = true;
+//       break;
+//     }
+//   }
+// }
 
 
-    // Vertical 
-for (let index = currentY - 1; index >= 0; index--) {
-  if (this.cell.board.cells[currentX][index].isEmpty()) {
-    this.cell.board.cells[currentX][index].available = true;
-  } else {
-    if (this.cell.board.cells[currentX][index].figure?.color === this.color) {
-      break;
-    } else {
-      this.cell.board.cells[currentX][index].available = true;
-      break;
-    }
-  }
-}
+//     // Vertical 
+// for (let index = currentY - 1; index >= 0; index--) {
+//   if (this.cell.board.cells[currentX][index].isEmpty()) {
+//     this.cell.board.cells[currentX][index].available = true;
+//   } else {
+//     if (this.cell.board.cells[currentX][index].figure?.color === this.color) {
+//       break;
+//     } else {
+//       this.cell.board.cells[currentX][index].available = true;
+//       break;
+//     }
+//   }
+// }
 
-// Vertical 
-for (let index = currentY + 1; index < this.cell.board.cells.length; index++) {
-  if (this.cell.board.cells[currentX][index].isEmpty()) {
-    this.cell.board.cells[currentX][index].available = true;
-  } else {
-    if (this.cell.board.cells[currentX][index].figure?.color === this.color) {
-      break;
-    } else {
-      this.cell.board.cells[currentX][index].available = true;
-      break;
-    }
-  }
-}
+// // Vertical 
+// for (let index = currentY + 1; index < this.cell.board.cells.length; index++) {
+//   if (this.cell.board.cells[currentX][index].isEmpty()) {
+//     this.cell.board.cells[currentX][index].available = true;
+//   } else {
+//     if (this.cell.board.cells[currentX][index].figure?.color === this.color) {
+//       break;
+//     } else {
+//       this.cell.board.cells[currentX][index].available = true;
+//       break;
+//     }
+//   }
+// }
 
      
         
-      return false;
-    }
+//       return false;
+//     }
 
    
    
